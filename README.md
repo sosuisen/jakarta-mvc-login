@@ -5,6 +5,8 @@ In this part, we will create a simple message board app with Jakarta MVC.
 
 This app will have the following features:
 
-- Login
-- Access database
+- Routing
+- Login/Logout
+- Database
 - Post message
+- Redirect
