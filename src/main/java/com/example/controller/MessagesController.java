@@ -12,12 +12,11 @@ import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.QueryParam;
 
 @Controller
 @RequestScoped
-@Path("/")
-public class MessageController {
+@Path("messages")
+public class MessagesController {
 	@Inject
 	private Models models;
 	@Inject
@@ -26,16 +25,16 @@ public class MessageController {
 	private HttpServletRequest req;
 
 	@GET
-	public String home() {
-		models.put("appName", "Message Board");
-		return "index.html";
+	public String getMessages() throws SQLException {
+		models.put("userName", req.getRemoteUser());
+		models.put("messages", messagesDAO.getAll());
+		return "messages.html";
 	}
 
-	@GET
-	@Path("login")
-	public String login(@QueryParam("error") final String error) {
-		models.put("error", error);
-		return "login.html";
+	@POST
+	public String postMessages(@FormParam("message") String mes) throws SQLException {
+		messagesDAO.create(req.getRemoteUser(), mes);
+		return "redirect:/messages/";
 	}
 
 	@GET
@@ -48,20 +47,5 @@ public class MessageController {
 			e.printStackTrace();
 		}
 		return "redirect:/";
-	}
-
-	@GET
-	@Path("messages")
-	public String getMessages() throws SQLException {
-		models.put("userName", req.getRemoteUser());
-		models.put("messages", messagesDAO.getAll());
-		return "messages.html";
-	}
-
-	@POST
-	@Path("messages")
-	public String postMessages(@FormParam("message") String mes) throws SQLException {
-		messagesDAO.create(req.getRemoteUser(), mes);
-		return "redirect:messages";
 	}
 }

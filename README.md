@@ -8,5 +8,6 @@ This app will have the following features:
 - Routing
 - Login/Logout
 - Database
-- Post message
+- Post messages
 - Redirect
+- Handling static files
