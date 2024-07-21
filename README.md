@@ -9,6 +9,7 @@ This app will have the following features:
 - GET/POST
 - Handling static files
 - Redirect
+- Authentication
 - Login/Logout
 - Database
-- 
+ 
