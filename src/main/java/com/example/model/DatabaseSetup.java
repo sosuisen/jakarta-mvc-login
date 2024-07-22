@@ -44,7 +44,7 @@ public class DatabaseSetup {
 				CREATE TABLE IF NOT EXISTS caller_groups (
 					caller_name VARCHAR(64) NOT NULL,
 					group_name VARCHAR(64) NOT NULL,
-					PRIMARY KEY (name, role))					
+					PRIMARY KEY (caller_name, group_name))
 				""");
 
 		update(ds, """
