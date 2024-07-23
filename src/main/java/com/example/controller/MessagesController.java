@@ -15,7 +15,7 @@ import jakarta.ws.rs.Path;
 
 @Controller
 @RequestScoped
-@Path("messages")
+@Path("/")
 public class MessagesController {
 	@Inject
 	private Models models;
@@ -25,6 +25,7 @@ public class MessagesController {
 	private HttpServletRequest req;
 
 	@GET
+	@Path("messages")
 	public String getMessages() throws SQLException {
 		models.put("userName", req.getRemoteUser());
 		models.put("messages", messagesDAO.getAll());
@@ -32,9 +33,10 @@ public class MessagesController {
 	}
 
 	@POST
+	@Path("messages")
 	public String postMessages(@FormParam("message") String mes) throws SQLException {
 		messagesDAO.create(req.getRemoteUser(), mes);
-		return "redirect:/messages/";
+		return "redirect:messages";
 	}
 
 	@GET
@@ -46,6 +48,6 @@ public class MessagesController {
 		} catch (ServletException e) {
 			e.printStackTrace();
 		}
-		return "redirect:/";
+		return "redirect:messages";
 	}
 }
