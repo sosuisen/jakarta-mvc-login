@@ -7,16 +7,12 @@
 </head>
 <body>
     <nav>
-        [<a th:href="@{/mvc/}">Home</a>]
+        [<a th:href="|${root}/|">Home</a>]
     </nav>
     <div id="main">
         <p th:text="|Welcome to ${appName}!|"></p>
         <p>
-            <!-- 
-            If you like Jakarta MVC style, use
-            <a th:href="|${mvc.basePath}/messages|">Enter</a>
-            -->
-            <a th:href="@{/mvc/messages}">Enter</a>
+            <a th:href="|${root}/messages|">Enter</a>
         </p>
     </div>
 </body>
