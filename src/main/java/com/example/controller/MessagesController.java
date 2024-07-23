@@ -48,6 +48,6 @@ public class MessagesController {
 		} catch (ServletException e) {
 			e.printStackTrace();
 		}
-		return "redirect:messages";
+		return "redirect:";
 	}
 }
