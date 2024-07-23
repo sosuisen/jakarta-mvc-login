@@ -3,6 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
 
+	<welcome-file-list>
+        <welcome-file>redirect-to-app-path.jsp</welcome-file>
+    </welcome-file-list>
+
 	<!-- The index and login pages are excluded from authentication. -->
 	<security-constraint>
 		<web-resource-collection>
