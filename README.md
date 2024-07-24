@@ -15,3 +15,7 @@ This app will have the following features:
 - Login/Logout
 - Database
  
+---
+Hidekazu Kubota
+
+This Java source code is licensed under the MIT License.
